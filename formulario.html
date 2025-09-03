@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quickstart Javascript - Web Components GovBR-DS</title>
+    <link rel="icon" type="image/x-icon" href="src/assets/js.svg" />
+    <script>
+      // Define base href dinamicamente
+      const isLocal =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+      const baseHref = isLocal
+        ? "/"
+        : "/bibliotecas/wbc/govbr-ds-wbc-quickstart-js/";
+      document.write('<base href="' + baseHref + '" />');
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@govbr-ds/core/dist/core.min.css"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body>
+    <header class="br-header mb-4" id="header" data-sticky="data-sticky">
+      <div class="container-fluid">
+        <div class="header-top">
+          <div class="header-logo">
+            <img src="src/assets/img-template.png" alt="logo" /><span
+              class="br-divider vertical"
+            ></span>
+            <div class="header-sign">
+              Quickstart Javascript - Web Components 2.0
+            </div>
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="header-menu">
+            <div class="header-menu-trigger" id="header-navigation">
+              <button
+                class="br-button small circle"
+                type="button"
+                aria-label="Menu"
+                data-toggle="menu"
+                data-target="#main-navigation"
+                id="navigation"
+              >
+                <i class="fas fa-bars" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="header-info">
+              <div class="header-title">Template básico</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="d-flex flex-fill mb-5" id="main">
+      <div class="container-fluid d-flex">
+        <div class="row">
+          <div
+            class="br-menu push active"
+            id="main-navigation"
+            style="width: 250px"
+          >
+            <div class="menu-container">
+              <div class="menu-panel">
+                <nav class="menu-body" role="tree">
+                  <a class="menu-item divider" href="" role="treeitem"
+                    ><span class="icon"
+                      ><i class="fas fa-home" aria-hidden="true"></i></span
+                    ><span class="content">Home</span></a
+                  >
+                  <a
+                    class="menu-item divider"
+                    href="formulario.html"
+                    role="treeitem"
+                    ><span class="icon"
+                      ><i
+                        class="fas fa-check-circle"
+                        aria-hidden="true"
+                      ></i></span
+                    ><span class="content">Formulário</span></a
+                  >
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-5">
+            <nav class="br-breadcrumb">
+              <ol class="crumb-list" role="list">
+                <li class="crumb home">
+                  <a class="br-button circle" href="javascript:void(0)"
+                    ><span class="sr-only">Página inicial</span
+                    ><i class="fas fa-home"></i
+                  ></a>
+                </li>
+                <li class="crumb">
+                  <i class="icon fas fa-chevron-right"></i
+                  ><a href="javascript:void(0)">Página anterior 01</a>
+                </li>
+                <li class="crumb">
+                  <i class="icon fas fa-chevron-right"></i
+                  ><a href="javascript:void(0)">Página anterior 02</a>
+                </li>
+                <li class="crumb">
+                  <i class="icon fas fa-chevron-right"></i
+                  ><a href="javascript:void(0)">Página anterior 03</a>
+                </li>
+                <li class="crumb">
+                  <i class="icon fas fa-chevron-right"></i
+                  ><a href="javascript:void(0)">Página anterior 04</a>
+                </li>
+                <li class="crumb" data-active="active">
+                  <i class="icon fas fa-chevron-right"></i
+                  ><span tabindex="0" aria-current="page">Página atual</span>
+                </li>
+              </ol>
+            </nav>
+            <div class="main-content pl-sm-3 mt-4" id="main-content">
+              <h1 class="mb-4">Formulário</h1>
+
+              <p class="mb-4">
+                O exemplo abaixo mostra como implementar validações em tempo
+                real, feedback visual e mensagens de erro.
+              </p>
+
+              <div class="br-card">
+                <div class="card-header">
+                  <h2>Cadastro de Usuário</h2>
+                </div>
+                <div class="card-content">
+                  <form id="formulario-cadastro">
+                    <div class="row">
+                      <div class="col-6 mb-3">
+                        <div class="br-input">
+                          <br-input
+                            label="Nome Completo: (Obrigatório)"
+                            id="nome"
+                            type="text"
+                            placeholder="Digite seu nome completo"
+                          ></br-input>
+                          <br-message
+                            id="erro-nome"
+                            state="danger"
+                            is-feedback
+                            show-icon
+                            style="display: none"
+                          ></br-message>
+                        </div>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <div class="br-input">
+                          <br-input
+                            label="E-mail: (Obrigatório)"
+                            id="email"
+                            type="email"
+                            placeholder="seu.email@exemplo.com"
+                          ></br-input>
+                          <br-message
+                            id="erro-email"
+                            state="danger"
+                            is-feedback
+                            show-icon
+                            style="display: none"
+                          ></br-message>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6 mb-3">
+                        <div class="br-input">
+                          <br-input
+                            label="CPF: (Obrigatório)"
+                            id="cpf"
+                            type="text"
+                            placeholder="000.000.000-00"
+                          ></br-input>
+                          <br-message
+                            id="erro-cpf"
+                            state="danger"
+                            is-feedback
+                            show-icon
+                            style="display: none"
+                          ></br-message>
+                        </div>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <div class="br-input">
+                          <br-input
+                            label="Telefone: (Obrigatório)"
+                            id="telefone"
+                            type="text"
+                            placeholder="(00) 00000-0000"
+                          ></br-input>
+                          <br-message
+                            id="erro-telefone"
+                            state="danger"
+                            is-feedback
+                            show-icon
+                            style="display: none"
+                          ></br-message>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6 mb-3">
+                        <div class="br-input">
+                          <br-input
+                            label="Senha: (Obrigatório)"
+                            id="senha"
+                            type="password"
+                            placeholder="Digite sua senha"
+                          >
+                            <button
+                              class="br-button"
+                              type="button"
+                              id="btn-mostrar-senha"
+                              aria-label="Exibir senha"
+                            >
+                              <i class="fas fa-eye" aria-hidden="true"></i>
+                            </button>
+                          </br-input>
+                          <br-message
+                            id="erro-senha"
+                            state="danger"
+                            is-feedback
+                            show-icon
+                            style="display: none"
+                          ></br-message>
+                          <div
+                            class="form-text"
+                            id="info-senha"
+                            style="display: none"
+                          >
+                            A senha deve ter pelo menos 8 caracteres, incluindo
+                            letras, números e caracteres especiais.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <div class="br-input">
+                          <br-input
+                            label="Confirmar Senha: (Obrigatório)"
+                            id="confirmarSenha"
+                            type="password"
+                            placeholder="Confirme sua senha"
+                          >
+                            <button
+                              class="br-button"
+                              type="button"
+                              id="btn-mostrar-confirmar-senha"
+                              aria-label="Exibir senha"
+                            >
+                              <i class="fas fa-eye" aria-hidden="true"></i>
+                            </button>
+                          </br-input>
+                          <br-message
+                            id="erro-confirmarSenha"
+                            state="danger"
+                            is-feedback
+                            show-icon
+                            style="display: none"
+                          ></br-message>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 mb-3">
+                        <br-checkbox
+                          class="mb-1"
+                          id="termos"
+                          name="termos"
+                          label="Li e concordo com os termos de uso e política de privacidade (Obrigatório)"
+                        ></br-checkbox>
+                        <br-message
+                          id="erro-termos"
+                          state="danger"
+                          is-feedback
+                          show-icon
+                          style="display: none"
+                        ></br-message>
+                      </div>
+                    </div>
+                    <br-button
+                      class="mr-2"
+                      type="button"
+                      emphasis="secondary"
+                      id="btn-limpar"
+                      style="display: inline-block"
+                    >
+                      Limpar
+                    </br-button>
+                    <br-button
+                      class="mr-2"
+                      type="submit"
+                      emphasis="primary"
+                      id="btn-cadastrar"
+                      style="display: inline-block"
+                    >
+                      Cadastrar
+                    </br-button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="br-footer">
+      <div class="container-fluid">
+        <div class="logo">
+          <img src="src/assets/img-template-negative.png" alt="Imagem" />
+        </div>
+        <div
+          class="br-list horizontal"
+          data-toggle="data-toggle"
+          data-sub="data-sub"
+        >
+          <div class="col-2">
+            <a class="br-item header" href="javascript:void(0)">
+              <div class="content text-down-01 text-bold text-uppercase">
+                Categoria 1
+              </div>
+              <div class="support">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </a>
+            <div class="br-list">
+              <span class="br-divider d-md-none"></span
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Nulla occaecat eiusmod</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Nulla occaecat eiusmod</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">
+                  Ex qui laborum consectetur aute commodo
+                </div> </a
+              ><span class="br-divider d-md-none"></span>
+            </div>
+          </div>
+          <div class="col-2">
+            <a class="br-item header" href="javascript:void(0)">
+              <div class="content text-down-01 text-bold text-uppercase">
+                Categoria 2
+              </div>
+              <div class="support">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </a>
+            <div class="br-list">
+              <span class="br-divider d-md-none"></span
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Deserunt</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Adipisicing culpa et ad consequat</div> </a
+              ><span class="br-divider d-md-none"></span>
+            </div>
+          </div>
+          <div class="col-2">
+            <a class="br-item header" href="javascript:void(0)">
+              <div class="content text-down-01 text-bold text-uppercase">
+                Categoria 3
+              </div>
+              <div class="support">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </a>
+            <div class="br-list">
+              <span class="br-divider d-md-none"></span
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Duis incididunt consectetur</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Adipisicing culpa et ad consequat</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Duis incididunt consectetur</div> </a
+              ><span class="br-divider d-md-none"></span>
+            </div>
+          </div>
+          <div class="col-2">
+            <a class="br-item header" href="javascript:void(0)">
+              <div class="content text-down-01 text-bold text-uppercase">
+                Categoria 4
+              </div>
+              <div class="support">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </a>
+            <div class="br-list">
+              <span class="br-divider d-md-none"></span
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Ad deserunt nostrud</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Ad deserunt nostrud</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Qui esse</div> </a
+              ><span class="br-divider d-md-none"></span>
+            </div>
+          </div>
+          <div class="col-2">
+            <a class="br-item header" href="javascript:void(0)">
+              <div class="content text-down-01 text-bold text-uppercase">
+                Categoria 5
+              </div>
+              <div class="support">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </a>
+            <div class="br-list">
+              <span class="br-divider d-md-none"></span
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Nulla occaecat eiusmod</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Nulla occaecat eiusmod</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Nulla occaecat eiusmod</div> </a
+              ><span class="br-divider d-md-none"></span>
+            </div>
+          </div>
+          <div class="col-2">
+            <a class="br-item header" href="javascript:void(0)">
+              <div class="content text-down-01 text-bold text-uppercase">
+                Categoria 6
+              </div>
+              <div class="support">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </a>
+            <div class="br-list">
+              <span class="br-divider d-md-none"></span
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Ad deserunt nostrud</div> </a
+              ><a class="br-item" href="javascript:void(0)">
+                <div class="content">Qui esse</div> </a
+              ><span class="br-divider d-md-none"></span>
+            </div>
+          </div>
+        </div>
+        <div class="d-none d-sm-block">
+          <div class="row align-items-end justify-content-between py-5">
+            <div class="col">
+              <div class="social-network">
+                <div class="social-network-title">Redes Sociais</div>
+                <div class="d-flex">
+                  <a
+                    class="br-button circle"
+                    href="javascript: void(0)"
+                    aria-label="Compartilhar por Facebook"
+                    ><i class="fab fa-facebook-f" aria-hidden="true"></i></a
+                  ><a
+                    class="br-button circle"
+                    href="javascript: void(0)"
+                    aria-label="Compartilhar por Twitter"
+                    ><i class="fab fa-twitter" aria-hidden="true"></i></a
+                  ><a
+                    class="br-button circle"
+                    href="javascript: void(0)"
+                    aria-label="Compartilhar por Linkedin"
+                    ><i class="fab fa-linkedin-in" aria-hidden="true"></i></a
+                  ><a
+                    class="br-button circle"
+                    href="javascript: void(0)"
+                    aria-label="Compartilhar por Whatsapp"
+                    ><i class="fab fa-whatsapp" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="col assigns text-right">
+              <img
+                class="ml-4"
+                src="/src/assets/img-template-negative.png"
+                alt="Imagem"
+              /><img
+                class="ml-4"
+                src="/src/assets/img-template-negative.png"
+                alt="Imagem"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="br-divider my-3"></span>
+      <div class="container-fluid">
+        <div class="info">
+          <div class="text-down-01 text-medium pb-3">
+            Texto destinado a exibição de informações relacionadas
+            à&nbsp;<strong>licença de uso.</strong>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@govbr-ds/webcomponents/dist/webcomponents/webcomponents.esm.js"
+    ></script>
+    <!-- Não use esse o `core-init.js` em produção. Consulte a documentação do DS para entender melhor como instanciar os componentes -->
+    <script
+      type="module"
+      src="node_modules/@govbr-ds/core/dist/core-init.min.js"
+    ></script>
+
+    <script>
+      // Função para definir o menu ativo baseado na URL
+      function setActiveMenuItem() {
+        const menuItems = document.querySelectorAll(".menu-item");
+        const currentPath = window.location.pathname;
+
+        menuItems.forEach((item) => {
+          // Remove a classe active de todos os itens
+          item.classList.remove("active");
+
+          const href = item.getAttribute("href");
+
+          // Normaliza os caminhos para comparação
+          const normalizedCurrent = currentPath.replace(/\/$/, "") || "/";
+          const normalizedHref = href.replace(/\/$/, "") || "/";
+
+          // Verifica se o href corresponde à URL atual
+          if (
+            normalizedCurrent === normalizedHref ||
+            (normalizedCurrent === "/" && normalizedHref === "") ||
+            (normalizedCurrent === "" && normalizedHref === "") ||
+            (normalizedCurrent.includes("formulario") &&
+              normalizedHref.includes("formulario")) ||
+            (normalizedCurrent === "/formulario.html" &&
+              normalizedHref === "formulario.html")
+          ) {
+            item.classList.add("active");
+          }
+        });
+      }
+
+      // Executa quando o DOM é carregado
+      document.addEventListener("DOMContentLoaded", setActiveMenuItem);
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Dados do formulário
+        const formulario = {
+          nome: "",
+          email: "",
+          cpf: "",
+          telefone: "",
+          senha: "",
+          confirmarSenha: "",
+          termos: false,
+        };
+
+        // Erros do formulário
+        const erros = {
+          nome: "",
+          email: "",
+          cpf: "",
+          telefone: "",
+          senha: "",
+          confirmarSenha: "",
+          termos: "",
+        };
+
+        // Estados para mostrar/esconder senha
+        let mostrarSenha = false;
+        let mostrarConfirmarSenha = false;
+
+        // Elementos do DOM
+        const form = document.getElementById("formulario-cadastro");
+        const nomeInput = document.getElementById("nome");
+        const emailInput = document.getElementById("email");
+        const cpfInput = document.getElementById("cpf");
+        const telefoneInput = document.getElementById("telefone");
+        const senhaInput = document.getElementById("senha");
+        const confirmarSenhaInput = document.getElementById("confirmarSenha");
+        const termosInput = document.getElementById("termos");
+        const btnMostrarSenha = document.getElementById("btn-mostrar-senha");
+        const btnMostrarConfirmarSenha = document.getElementById(
+          "btn-mostrar-confirmar-senha"
+        );
+        const btnLimpar = document.getElementById("btn-limpar");
+        const infoSenha = document.getElementById("info-senha");
+
+        // Função para mostrar/esconder mensagens de erro
+        function mostrarErro(campo, mensagem) {
+          const erroElement = document.getElementById(`erro-${campo}`);
+          const inputElement = document.getElementById(campo);
+
+          if (mensagem) {
+            erroElement.setAttribute("message", mensagem);
+            erroElement.setAttribute("aria-label", mensagem);
+            erroElement.style.display = "block";
+            inputElement.setAttribute("state", "danger");
+          } else {
+            erroElement.style.display = "none";
+            inputElement.removeAttribute("state");
+          }
+        }
+
+        // Função de validação por campo
+        function validarCampo(campo) {
+          switch (campo) {
+            case "nome":
+              if (!formulario.nome) {
+                erros.nome = "O nome é obrigatório";
+              } else if (formulario.nome.length < 3) {
+                erros.nome = "O nome deve ter pelo menos 3 caracteres";
+              } else {
+                erros.nome = "";
+              }
+              break;
+            case "email":
+              if (!formulario.email) {
+                erros.email = "O e-mail é obrigatório";
+              } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formulario.email)) {
+                erros.email = "Digite um e-mail válido";
+              } else {
+                erros.email = "";
+              }
+              break;
+            case "cpf":
+              if (!formulario.cpf) {
+                erros.cpf = "O CPF é obrigatório";
+              } else if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(formulario.cpf)) {
+                erros.cpf = "Digite um CPF válido (000.000.000-00)";
+              } else {
+                erros.cpf = "";
+              }
+              break;
+            case "telefone":
+              if (!formulario.telefone) {
+                erros.telefone = "O telefone é obrigatório";
+              } else if (!/^\(\d{2}\) \d{5}-\d{4}$/.test(formulario.telefone)) {
+                erros.telefone = "Digite um telefone válido ((00) 00000-0000)";
+              } else {
+                erros.telefone = "";
+              }
+              break;
+            case "senha":
+              if (!formulario.senha) {
+                erros.senha = "A senha é obrigatória";
+              } else if (formulario.senha.length < 8) {
+                erros.senha = "A senha deve ter pelo menos 8 caracteres";
+              } else if (
+                !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/.test(
+                  formulario.senha
+                )
+              ) {
+                erros.senha =
+                  "A senha deve conter letras maiúsculas, minúsculas, números e caracteres especiais";
+              } else {
+                erros.senha = "";
+              }
+              break;
+            case "confirmarSenha":
+              if (!formulario.confirmarSenha) {
+                erros.confirmarSenha = "A confirmação de senha é obrigatória";
+              } else if (formulario.confirmarSenha !== formulario.senha) {
+                erros.confirmarSenha = "As senhas não coincidem";
+              } else {
+                erros.confirmarSenha = "";
+              }
+              break;
+            case "termos":
+              if (!formulario.termos) {
+                erros.termos = "Você precisa aceitar os termos para continuar";
+              } else {
+                erros.termos = "";
+              }
+              break;
+          }
+
+          mostrarErro(campo, erros[campo]);
+        }
+
+        // Função para validar todo o formulário
+        function validarFormularioCadastro() {
+          // Validar todos os campos
+          validarCampo("nome");
+          validarCampo("email");
+          validarCampo("cpf");
+          validarCampo("telefone");
+          validarCampo("senha");
+          validarCampo("confirmarSenha");
+          validarCampo("termos");
+
+          // Verificar se há erros
+          const temErros = Object.values(erros).some((erro) => erro !== "");
+
+          if (!temErros) {
+            // Simular envio do formulário
+            alert("Formulário de cadastro enviado com sucesso!");
+            limparFormulario();
+          } else {
+            alert("Por favor, corrija os erros no formulário antes de enviar.");
+          }
+        }
+
+        // Função para limpar o formulário
+        function limparFormulario() {
+          formulario.nome = "";
+          formulario.email = "";
+          formulario.cpf = "";
+          formulario.telefone = "";
+          formulario.senha = "";
+          formulario.confirmarSenha = "";
+          formulario.termos = false;
+
+          // Limpar valores dos inputs
+          nomeInput.value = "";
+          emailInput.value = "";
+          cpfInput.value = "";
+          telefoneInput.value = "";
+          senhaInput.value = "";
+          confirmarSenhaInput.value = "";
+          termosInput.checked = false;
+
+          // Limpar erros
+          Object.keys(erros).forEach((key) => {
+            erros[key] = "";
+            mostrarErro(key, "");
+          });
+
+          // Esconder info da senha
+          infoSenha.style.display = "none";
+        }
+
+        // Event listeners para os inputs
+        nomeInput.addEventListener("input", function (e) {
+          formulario.nome = e.target.value;
+        });
+
+        nomeInput.addEventListener("blur", function () {
+          validarCampo("nome");
+        });
+
+        emailInput.addEventListener("input", function (e) {
+          formulario.email = e.target.value;
+        });
+
+        emailInput.addEventListener("blur", function () {
+          validarCampo("email");
+        });
+
+        cpfInput.addEventListener("input", function (e) {
+          formulario.cpf = e.target.value;
+        });
+
+        cpfInput.addEventListener("blur", function () {
+          validarCampo("cpf");
+        });
+
+        telefoneInput.addEventListener("input", function (e) {
+          formulario.telefone = e.target.value;
+        });
+
+        telefoneInput.addEventListener("blur", function () {
+          validarCampo("telefone");
+        });
+
+        senhaInput.addEventListener("input", function (e) {
+          formulario.senha = e.target.value;
+
+          // Mostrar/esconder info da senha
+          if (formulario.senha && !erros.senha) {
+            infoSenha.style.display = "block";
+          } else {
+            infoSenha.style.display = "none";
+          }
+        });
+
+        senhaInput.addEventListener("blur", function () {
+          validarCampo("senha");
+        });
+
+        confirmarSenhaInput.addEventListener("input", function (e) {
+          formulario.confirmarSenha = e.target.value;
+        });
+
+        confirmarSenhaInput.addEventListener("blur", function () {
+          validarCampo("confirmarSenha");
+        });
+
+        termosInput.addEventListener("change", function (e) {
+          formulario.termos = e.target.checked;
+        });
+
+        termosInput.addEventListener("blur", function () {
+          validarCampo("termos");
+        });
+
+        // Botão para mostrar/esconder senha
+        btnMostrarSenha.addEventListener("click", function () {
+          mostrarSenha = !mostrarSenha;
+          senhaInput.type = mostrarSenha ? "text" : "password";
+          const icon = btnMostrarSenha.querySelector("i");
+          icon.className = mostrarSenha ? "fas fa-eye-slash" : "fas fa-eye";
+        });
+
+        // Botão para mostrar/esconder confirmar senha
+        btnMostrarConfirmarSenha.addEventListener("click", function () {
+          mostrarConfirmarSenha = !mostrarConfirmarSenha;
+          confirmarSenhaInput.type = mostrarConfirmarSenha
+            ? "text"
+            : "password";
+          const icon = btnMostrarConfirmarSenha.querySelector("i");
+          icon.className = mostrarConfirmarSenha
+            ? "fas fa-eye-slash"
+            : "fas fa-eye";
+        });
+
+        // Botão limpar
+        btnLimpar.addEventListener("click", function () {
+          limparFormulario();
+        });
+
+        // Submit do formulário
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          validarFormularioCadastro();
+        });
+      });
+    </script>
+  </body>
+</html>

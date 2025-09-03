@@ -1,0 +1,31 @@
+{
+  "name": "@govbr-ds/webcomponents-quickstart-js",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Projeto exemplificando o uso da biblioteca de Web Components do GovBR-DS em projetos Vue.",
+  "keywords": [
+    "design system",
+    "govbr-ds",
+    "web components",
+    "vue"
+  ],
+  "homepage": "https://govbr-ds.gitlab.io/bibliotecas/wbc/govbr-ds-wbc-quickstart-vue",
+  "bugs": "https://gitlab.com/govbr-ds/bibliotecas/wbc/govbr-ds-wbc-quickstart-vue/-/issues",
+  "repository": "gitlab:govbr-ds/bibliotecas/wbc/govbr-ds-wbc-quickstart-vue.git",
+  "license": "MIT",
+  "author": "SERPRO (http://serpro.gov.br/)",
+  "type": "module",
+  "scripts": {
+    "build": "NODE_ENV=production vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@govbr-ds/core": "^3.6.1",
+    "@govbr-ds/webcomponents": "^2.0.0-next.43"
+  },
+  "devDependencies": {
+    "@govbr-ds/release-config": "4.3.0",
+    "vite": "^7.0.3"
+  }
+}
