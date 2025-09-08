@@ -13,3 +13,19 @@
   max-width: 350px;
   max-height: 350px;
 }
+
+a {
+  text-decoration: none !important;
+}
+
+.subtitulos {
+  color: black;
+}
+
+.subtitulos:hover {
+  background-color: #fff;
+}
+
+.subtitulos:focus {
+  background-color: #fff;
+}

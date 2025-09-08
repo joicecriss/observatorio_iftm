@@ -28,22 +28,37 @@
   <header class="br-header mb-4" id="header" data-sticky="data-sticky">
     <div class="container-fluid">
       <div class="header-top">
-        <div class="header-logo">
-          <img src="src/assets/logo_obs.png" alt="logo" /><span class="br-divider vertical"></span>
-          <div class="header-sign">
-            Observatório IFTM
+        <div class="header-logo justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="src/assets/logo_obs.png" alt="logo" />
+            <div class="header-sign">
+              bservatório IFTM
+            </div>
+          </div>
+          <div class="header-sign justify-content-end">
+            <a class="subtitulos" href="https://www.gov.br/pt-br/canais-do-executivo-federal" target="_blank">Canais</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www4.planalto.gov.br/legislacao" target="_blank">Legislação</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www.gov.br/acessoainformacao/pt-br" target="_blank">Acesso à informação</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www.gov.br/pt-br/participacao-social/" target="_blank">Participe</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www.gov.br/secom/pt-br/acesso-a-informacao/comunicabr/" target="_blank">Comunica BR</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www.gov.br/economia/acl_users/credentials_cookie_auth/require_login?came_from=https%3A//www.gov.br/economia/pt-br/canais_atendimento/ouvidoria/simplifique" target="_blank">Simplifique!</a>
           </div>
         </div>
       </div>
       <div class="header-bottom">
-        <div class="header-menu">
-          <div class="header-menu-trigger" id="header-navigation">
-            <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu" data-target="#main-navigation" id="navigation">
-              <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
+        <div class="header-menu d-flex justify-content-between">
+          <div class="d-flex">
+            <div class="header-menu-trigger" id="header-navigation">
+              <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu" data-target="#main-navigation" id="navigation">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="header-info">
+              <div class="header-title">Bem vindo ao Observatório IFTM</div>
+            </div>
           </div>
-          <div class="header-info">
-            <div class="header-title">Consulta de Docentes</div>
+          <div class="header-title justify-content-end">
+            Ministério da Educação
           </div>
         </div>
       </div>
@@ -59,10 +74,6 @@
                 <a class="menu-item divider" href="" role="treeitem">
                   <span class="icon"><i class="fas fa-home" aria-hidden="true"></i></span>
                   <span class="content">Home</span>
-                </a>
-                <a class="menu-item divider" href="formulario.html" role="treeitem">
-                  <span class="icon"><i class="fas fa-check-circle" aria-hidden="true"></i></span>
-                  <span class="content">Formulário</span>
                 </a>
                 <a class="menu-item divider" href="consulta-docentes.html" role="treeitem">
                   <span class="icon"><i class="fas fa-check-circle" aria-hidden="true"></i></span>
@@ -225,6 +236,7 @@
     const pesquisa = document.getElementById('pesquisa');
     const tbody = document.querySelector('#tabelaDocentes tbody');
 
+    // Nomes dos campis
     const nomesCampi = {
       "CV": "Campina Verde"
       , "ITU": "Ituiutaba"
@@ -237,6 +249,7 @@
       , "UC": "Uberlândia Centro"
     };
 
+    // Declarando variáveis
     let graficoLattes, graficoTitulos;
 
     // 1. Carrega JSON
@@ -382,8 +395,7 @@
 
       tbody.innerHTML = paginaDados.map(d => `
         <tr>
-          <td><img src="${d.urlFoto}" width="50" 
-            onerror="this.src='src/assets/user-default.gif'"></td>
+          <td><img src="${d.urlFoto}" width="50" onerror="this.src='src/assets/user-default.gif'" style="width: 5rem; height: 3rem; border-radius: 5rem"></td>
           <td>${d.nome}</td>
           <td>${d.email || ''}</td>
           <td>${d.graduacao || '-'}</td>
