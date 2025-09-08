@@ -4,6 +4,12 @@
 }
 
 .logo {
-  height: 120px;
+  /* height: 120px; */
   width: auto;
+}
+
+#graficoLattes,
+#graficoTitulos {
+  max-width: 350px;
+  max-height: 350px;
 }
