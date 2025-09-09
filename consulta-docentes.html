@@ -17,8 +17,10 @@
       : "/bibliotecas/wbc/govbr-ds-wbc-quickstart-js/";
     document.write('<base href="' + baseHref + '" />');
   </script>
-  <link rel="stylesheet" href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap" />
+  <link rel="stylesheet"
+    href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="node_modules/@govbr-ds/core/dist/core.min.css" />
   <link rel="stylesheet" href="src/style.css" />
@@ -34,12 +36,19 @@
             <div>bservatório IFTM</div>
           </div>
           <div class="header-sign justify-content-end">
-            <a class="subtitulos" href="https://www.gov.br/pt-br/canais-do-executivo-federal" target="_blank">Canais</a>&nbsp;&nbsp;
-            <a class="subtitulos" href="https://www4.planalto.gov.br/legislacao" target="_blank">Legislação</a>&nbsp;&nbsp;
-            <a class="subtitulos" href="https://www.gov.br/acessoainformacao/pt-br" target="_blank">Acesso à informação</a>&nbsp;&nbsp;
-            <a class="subtitulos" href="https://www.gov.br/pt-br/participacao-social/" target="_blank">Participe</a>&nbsp;&nbsp;
-            <a class="subtitulos" href="https://www.gov.br/secom/pt-br/acesso-a-informacao/comunicabr/" target="_blank">Comunica BR</a>&nbsp;&nbsp;
-            <a class="subtitulos" href="https://www.gov.br/economia/acl_users/credentials_cookie_auth/require_login?came_from=https%3A//www.gov.br/economia/pt-br/canais_atendimento/ouvidoria/simplifique" target="_blank">Simplifique!</a>
+            <a class="subtitulos" href="https://www.gov.br/pt-br/canais-do-executivo-federal"
+              target="_blank">Canais</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www4.planalto.gov.br/legislacao"
+              target="_blank">Legislação</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www.gov.br/acessoainformacao/pt-br" target="_blank">Acesso à
+              informação</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www.gov.br/pt-br/participacao-social/"
+              target="_blank">Participe</a>&nbsp;&nbsp;
+            <a class="subtitulos" href="https://www.gov.br/secom/pt-br/acesso-a-informacao/comunicabr/"
+              target="_blank">Comunica BR</a>&nbsp;&nbsp;
+            <a class="subtitulos"
+              href="https://www.gov.br/economia/acl_users/credentials_cookie_auth/require_login?came_from=https%3A//www.gov.br/economia/pt-br/canais_atendimento/ouvidoria/simplifique"
+              target="_blank">Simplifique!</a>
           </div>
         </div>
       </div>
@@ -47,7 +56,8 @@
         <div class="header-menu d-flex justify-content-between">
           <div class="d-flex">
             <div class="header-menu-trigger" id="header-navigation">
-              <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu" data-target="#main-navigation" id="navigation">
+              <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu"
+                data-target="#main-navigation" id="navigation">
                 <i class="fas fa-bars" aria-hidden="true"></i>
               </button>
             </div>
@@ -86,7 +96,8 @@
           <nav class="br-breadcrumb">
             <ol class="crumb-list" role="list">
               <li class="crumb home">
-                <a class="br-button circle" href=""><span class="sr-only">Página inicial</span><i class="fas fa-home"></i></a>
+                <a class="br-button circle" href=""><span class="sr-only">Página inicial</span><i
+                    class="fas fa-home"></i></a>
               </li>
               <li class="crumb" data-active="active">
                 <i class="icon fas fa-chevron-right"></i><span tabindex="0" aria-current="page">Página atual</span>
@@ -169,8 +180,10 @@
         <h4 class="header-sign m-0">bservatório IFTM</h4>
       </div>
       <div class="assigns col d-flex justify-content-end">
-        <a href="https://www.gov.br/acessoainformacao/pt-br" target="_blank"><img class="ml-4" src="/src/assets/logo_acesso_informacao.svg" alt="Imagem" /></a>
-        <a href="https://www.gov.br/acessoainformacao/pt-br" target="_blank"><img class="ml-4" src="/src/assets/logo_gov.png" alt="Imagem" /></a>
+        <a href="https://www.gov.br/acessoainformacao/pt-br" target="_blank"><img class="ml-4"
+            src="/src/assets/logo_acesso_informacao.svg" alt="Imagem" /></a>
+        <a href="https://www.gov.br/acessoainformacao/pt-br" target="_blank"><img class="ml-4"
+            src="/src/assets/logo_gov.png" alt="Imagem" /></a>
       </div>
     </div>
     <span class="br-divider my-3"></span>
@@ -225,9 +238,13 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    let docentes = [];
-    let filtrados = [];
+    // -------------------------
+    // VARIÁVEIS GLOBAIS
+    // -------------------------
+    let docentes = [];     // Guarda todos os docentes carregados do JSON
+    let filtrados = [];    // Guarda apenas os docentes depois dos filtros aplicados
 
+    // Elementos principais do DOM
     const selectCampi = document.getElementById('campi');
     const campusSelecionado = document.getElementById('campusSelecionado');
     const totalDocentes = document.getElementById('totalDocentes');
@@ -235,37 +252,41 @@
     const pesquisa = document.getElementById('pesquisa');
     const tbody = document.querySelector('#tabelaDocentes tbody');
 
-    // Nomes dos campis
+    // Dicionário para traduzir códigos de campus em nomes completos
     const nomesCampi = {
-      "CV": "Campina Verde"
-      , "ITU": "Ituiutaba"
-      , "PAR": "Paracatu"
-      , "PM": "Patos de Minas"
-      , "PAT": "Patrocínio"
-      , "URA": "Uberaba"
-      , "UPT": "Uberaba Parque Tecnológico"
-      , "UDI": "Uberlândia"
-      , "UC": "Uberlândia Centro"
+      "CV": "Campina Verde",
+      "ITU": "Ituiutaba",
+      "PAR": "Paracatu",
+      "PM": "Patos de Minas",
+      "PAT": "Patrocínio",
+      "URA": "Uberaba",
+      "UPT": "Uberaba Parque Tecnológico",
+      "UDI": "Uberlândia",
+      "UC": "Uberlândia Centro"
     };
 
-    // Declarando variáveis
+    // Referências dos gráficos (para poder destruir/recriar quando atualizar)
     let graficoLattes, graficoTitulos;
 
-    // 1. Carrega JSON
+    // -------------------------
+    // 1. CARREGAMENTO DO JSON
+    // -------------------------
     fetch('ListaPesquisadores.json')
       .then(r => r.json())
       .then(json => {
-        docentes = json;
-        preencherSelectCampi();
-        aplicarFiltros();
+        docentes = json;             // guarda todos os dados
+        preencherSelectCampi();      // monta o select dos campi
+        aplicarFiltros();            // aplica os filtros iniciais (sem nada selecionado = todos)
       });
 
-    // 2. Preenche o select de campi
+    // -------------------------
+    // 2. MONTA O SELECT DE CAMPI
+    // -------------------------
     function preencherSelectCampi() {
       const lista = document.querySelector('#selectCampi .br-list');
-      lista.innerHTML = ''; // limpa antes
+      lista.innerHTML = ''; // limpa antes de preencher
 
-      // Adiciona "Todos"
+      // Opção "Todos os Campi"
       lista.innerHTML += `
         <div class="br-item" role="option">
           <div class="br-radio">
@@ -275,10 +296,10 @@
         </div>
       `;
 
-      // Adiciona campi únicos
+      // Cria lista com campi únicos vindos do JSON
       const campiUnicos = [...new Set(docentes.map(d => d.instituicao))];
       campiUnicos.forEach(c => {
-        const nome = nomesCampi[c] || c;
+        const nome = nomesCampi[c] || c; // se não achar, usa o código mesmo
         lista.innerHTML += `
           <div class="br-item" role="option">
             <div class="br-radio">
@@ -289,58 +310,72 @@
         `;
       });
 
-      // Evento de mudança
+      // Quando mudar seleção no select
       lista.querySelectorAll('input[type="radio"]').forEach(r => {
         r.addEventListener('change', () => {
+          // Guarda abreviatura no dataset (usada para filtrar)
           selectCampi.dataset.value = r.value;
 
           // Mostra o nome completo no campo visível
           document.getElementById('campi').value = r.value
             ? (nomesCampi[r.value] || r.value)
             : "Todos os Campi";
-          
+
           aplicarFiltros();
 
-          // Fecha o select corretamente simulando clique no botão
+          // Fecha o select (simula clique no botão do DS GovBR)
           const trigger = document.querySelector('#selectCampi [data-trigger]');
           if (trigger) trigger.click();
         });
       });
     }
 
-    // 3. Aplica filtros
+    // -------------------------
+    // 3. APLICA FILTROS
+    // -------------------------
     function aplicarFiltros() {
-      let dados = [...docentes];
+      let dados = [...docentes]; // cópia do array original
 
-      // filtro por campus
+      // filtro por campus (se não estiver vazio)
       const campus = selectCampi.dataset.value || "";
       if (campus) dados = dados.filter(d => d.instituicao === campus);
 
-      // filtro por pesquisa
+      // filtro por pesquisa (nome do docente)
       const q = pesquisa.value.toLowerCase();
       if (q) dados = dados.filter(d => d.nome.toLowerCase().includes(q));
 
+      // atualiza lista filtrada
       filtrados = dados;
+
+      // atualiza as partes da tela
       atualizarResumo();
       atualizarTabela();
       atualizarGraficos();
     }
 
-    // 4. Atualiza KPIs
+    // -------------------------
+    // 4. ATUALIZA INDICADORES (KPIs)
+    // -------------------------
     function atualizarResumo() {
       const campusSelecionadoCodigo = selectCampi.dataset.value || "";
+
+      // Mostra nome do campus selecionado ou "Todos os Campi"
       campusSelecionado.textContent = campusSelecionadoCodigo
         ? (nomesCampi[campusSelecionadoCodigo] || campusSelecionadoCodigo)
         : "Todos os Campi";
 
+      // Quantidade de docentes totais
       totalDocentes.textContent = filtrados.length;
+
+      // Quantidade de docentes com link do Lattes
       totalLattes.textContent = filtrados.filter(d => d.lattesEndereco).length;
     }
 
-
-    // 6. Atualiza gráficos
+    // -------------------------
+    // 5. ATUALIZA GRÁFICOS
+    // -------------------------
     function atualizarGraficos() {
-      // Lattes por ano
+      // --- Gráfico Lattes por ano ---
       const anos = {};
       filtrados.forEach(d => {
         if (d.dataAtualizacaoLattes) {
@@ -350,7 +385,7 @@
       });
 
       const ctx1 = document.getElementById('graficoLattes').getContext('2d');
-      if (graficoLattes) graficoLattes.destroy();
+      if (graficoLattes) graficoLattes.destroy(); // destrói antes de recriar
       graficoLattes = new Chart(ctx1, {
         type: 'pie',
         data: {
@@ -359,7 +394,7 @@
         }
       });
 
-      // Titulações (um docente pode contar em vários)
+      // --- Gráfico Titulações ---
       const titulos = { graduacao: 0, mestrado: 0, doutorado: 0 };
       filtrados.forEach(d => {
         if (d.graduacao) titulos.graduacao++;
@@ -378,20 +413,25 @@
       });
     }
 
-    // Eventos
+    // -------------------------
+    // 6. EVENTOS
+    // -------------------------
     selectCampi.addEventListener('change', aplicarFiltros);
     pesquisa.addEventListener('input', aplicarFiltros);
-  </script>
 
-  <script>
+    // -------------------------
+    // 7. PAGINAÇÃO E TABELA
+    // -------------------------
     let paginaAtual = 1;
     const itensPorPagina = 20;
 
+    // Renderiza tabela com base na página atual
     function atualizarTabela() {
       const inicio = (paginaAtual - 1) * itensPorPagina;
       const fim = inicio + itensPorPagina;
       const paginaDados = filtrados.slice(inicio, fim);
 
+      // Monta as linhas da tabela
       tbody.innerHTML = paginaDados.map(d => `
         <tr>
           <td><img src="${d.urlFoto}" width="50" onerror="this.src='src/assets/user-default.gif'" style="width: 5rem; height: 3rem; border-radius: 5rem"></td>
@@ -417,6 +457,7 @@
       renderizarPaginacao();
     }
 
+    // Monta os botões de paginação
     function renderizarPaginacao() {
       const totalPaginas = Math.ceil(filtrados.length / itensPorPagina);
       const paginacao = document.getElementById('paginacao');
@@ -448,13 +489,15 @@
       `;
     }
 
+    // Troca de página
     function mudarPagina(num) {
       paginaAtual = num;
       atualizarTabela();
     }
 
+    // Expande/colapsa linha com detalhes do docente
     function toggleExpand(id) {
-      const tr = document.getElementById('detalhes-'+id);
+      const tr = document.getElementById('detalhes-' + id);
       tr.style.display = tr.style.display === 'none' ? '' : 'none';
     }
 
